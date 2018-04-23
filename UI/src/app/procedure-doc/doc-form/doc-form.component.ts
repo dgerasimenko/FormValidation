@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProcedureDoc} from "../procedure-doc";
 import {Http} from "@angular/http";
+import {DlDateTimePickerDateModule} from "angular-bootstrap-datetimepicker";
 
 @Component({
   selector: 'app-doc-form',
@@ -8,6 +9,9 @@ import {Http} from "@angular/http";
   styleUrls: ['./doc-form.component.css']
 })
 export class DocFormComponent implements OnInit {
+
+  dateTimePicker: DlDateTimePickerDateModule;
+
   locations = ['US', 'UK',
     'UA', 'GB'];
 
@@ -29,7 +33,7 @@ export class DocFormComponent implements OnInit {
   }
   ngOnInit() {
     this.procedureDoc = new ProcedureDoc('222', 'tittle', 'description',
-      'username', 'revision', this.locations[0], 'submit date', 'workflow name');
+      'username', 'revision', this.locations[0], '', 'workflow name');
   }
   // TODO: Remove this when we're done
   get diagnostic() { return JSON.stringify(this.procedureDoc); }

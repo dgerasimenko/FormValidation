@@ -1,3 +1,5 @@
+import {DlDateTimePickerDateModule} from "angular-bootstrap-datetimepicker";
+
 export class ProcedureDoc {
   constructor(
     public formId: string,

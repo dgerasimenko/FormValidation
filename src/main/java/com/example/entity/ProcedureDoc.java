@@ -1,6 +1,8 @@
 package com.example.entity;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.time.LocalDateTime;
 
 public class ProcedureDoc {
     private Long id;
@@ -10,13 +12,15 @@ public class ProcedureDoc {
     private String username;// (createUser/Author)
     private String revision;
     private String location;
-    private String submittedDate;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    private LocalDateTime submittedDate;
     private String workflowName;
 
     public ProcedureDoc() {
     }
 
-    public ProcedureDoc(Long id, String formId, String title, String description, String username, String revision, String location, String submittedDate, String workflowName) {
+    public ProcedureDoc(Long id, String formId, String title, String description, String username, String revision, String location, LocalDateTime submittedDate, String workflowName) {
         this.id = id;
         this.formId = formId;
         this.title = title;
@@ -84,11 +88,11 @@ public class ProcedureDoc {
         this.location = location;
     }
 
-    public String getSubmittedDate() {
+    public LocalDateTime getSubmittedDate() {
         return submittedDate;
     }
 
-    public void setSubmittedDate(String submittedDate) {
+    public void setSubmittedDate(LocalDateTime submittedDate) {
         this.submittedDate = submittedDate;
     }
 
